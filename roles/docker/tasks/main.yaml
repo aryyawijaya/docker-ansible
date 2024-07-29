@@ -45,14 +45,9 @@
     - docker-buildx-plugin
     - docker-compose-plugin
 
-- name: Add Docker group
-  ansible.builtin.group:
-    name: docker
-    state: present
-
 - name: Add user to Docker group
   ansible.builtin.user:
-    name: '{{ ansible_user }}'
+    name: '{{ docker_user }}'
     groups: docker
     append: true
 
